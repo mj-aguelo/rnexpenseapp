@@ -1,35 +1,34 @@
 import React, {
+  Dispatch,
   createContext,
   FC,
   PropsWithChildren,
-  Reducer,
   useContext,
   useReducer,
 } from 'react';
+import {appReducer} from 'store/appReducer';
+import {initialState} from 'store/initialState';
 
 export interface IAppContext {
-  theme: string;
+  theme?: string;
 }
-const AppContext = createContext({});
+const AppContext = createContext<{
+  state?: IAppContext;
+  dispatch: Dispatch<any>;
+}>({
+  state: initialState,
+  dispatch: () => null,
+});
 
 export const useAppContext = () => {
   return useContext(AppContext);
 };
 
-interface IAppContextProviderProps extends PropsWithChildren {
-  initialState: IAppContext;
-  reducer: Reducer<any, any>;
-}
-
-const AppContextProvider: FC<IAppContextProviderProps> = ({
-  children,
-  initialState,
-  reducer,
-}) => {
-  const [globalState, dispatch] = useReducer(reducer, initialState);
+const AppContextProvider: FC<PropsWithChildren> = ({children}) => {
+  const [state, dispatch] = useReducer(appReducer, initialState);
 
   return (
-    <AppContext.Provider value={[globalState, dispatch]}>
+    <AppContext.Provider value={{state, dispatch}}>
       {children}
     </AppContext.Provider>
   );

@@ -10,7 +10,7 @@ export const appReducer = (state = initialState, action: TAppAction) => {
   if (action.type === APP_SET_THEME) {
     return {
       ...state,
-      bookings: state.theme.concat(action.theme),
+      theme: action.theme,
     };
   }
 };

@@ -9,20 +9,16 @@
  */
 
 import React from 'react';
-import {Provider as PaperProvider} from 'react-native-paper';
 import AppContextProvider from 'context/AppContext';
+import ThemeProvider from 'context/ThemeContext';
 import Navigator from 'navigation/Navigator';
-
-import {initialState} from 'store/initialState';
-import {appReducer} from 'store/appReducer';
-import theme from 'theme';
 
 const App = () => {
   return (
-    <AppContextProvider initialState={initialState} reducer={appReducer}>
-      <PaperProvider theme={theme}>
+    <AppContextProvider>
+      <ThemeProvider>
         <Navigator />
-      </PaperProvider>
+      </ThemeProvider>
     </AppContextProvider>
   );
 };
