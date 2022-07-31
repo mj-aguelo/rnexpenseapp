@@ -1,8 +1,15 @@
 import React, {FC, PropsWithChildren} from 'react';
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
+import useComponentStyles from './BaseLayout.styles';
 
 const BaseLayout: FC<PropsWithChildren> = ({children}) => {
-  return <SafeAreaView>{children}</SafeAreaView>;
+  const styles = useComponentStyles();
+
+  return (
+    <SafeAreaView style={styles.main}>
+      <View style={styles.container}>{children}</View>
+    </SafeAreaView>
+  );
 };
 
 export default BaseLayout;

@@ -1,12 +1,12 @@
+import CustomTypography from 'components/atoms/Typography/CustomTypography';
+import BaseLayout from 'components/layout/BaseLayout';
 import React, {FC} from 'react';
-import {SafeAreaView} from 'react-native';
-import {Text} from 'react-native-paper';
 
 const HomeScreen: FC = () => {
   return (
-    <SafeAreaView style={{ backgroundColor: 'pink'}}>
-      <Text style={{ color: 'red'}}>Home</Text>
-    </SafeAreaView>
+    <BaseLayout>
+      <CustomTypography variant="h1">Home</CustomTypography>
+    </BaseLayout>
   );
 };
 

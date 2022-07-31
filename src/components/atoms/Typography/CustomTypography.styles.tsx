@@ -4,12 +4,23 @@ import {useTheme} from 'react-native-paper';
 
 const componentStyles = ({}: {colors: ReactNativePaper.ThemeColors}) =>
   StyleSheet.create({
-    main: {
-      display: 'flex',
-      flex: 1,
+    h1: {
+      fontSize: 26,
     },
-    container: {
-      margin: 16,
+    h2: {
+      fontSize: 24,
+    },
+    h3: {
+      fontSize: 20,
+    },
+    h4: {
+      fontSize: 16,
+    },
+    p: {
+      fontSize: 12,
+    },
+    label: {
+      fontSize: 14,
     },
   });
 
