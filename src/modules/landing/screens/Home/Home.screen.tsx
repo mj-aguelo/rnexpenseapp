@@ -1,4 +1,4 @@
-import CustomTypography from 'components/atoms/Typography/CustomTypography';
+import CustomTypography from 'components/atoms/Typography';
 import BaseLayout from 'components/layout/BaseLayout';
 import React, {FC} from 'react';
 import {useTheme} from 'react-native-paper';

@@ -5,9 +5,10 @@ import {useAppContext} from './AppContext';
 
 function ThemeProvider({children}: PropsWithChildren) {
   const {state} = useAppContext();
+  const isDarkMode = state?.theme === 'dark';
 
   return (
-    <Provider theme={state?.theme === 'light' ? defaultTheme : darkTheme}>
+    <Provider theme={isDarkMode ? darkTheme : defaultTheme}>
       {children}
     </Provider>
   );

@@ -8,7 +8,7 @@ import {setTheme} from 'store/actions';
 function useNavigationOptions(): StackNavigationOptions {
   const {colors} = useTheme();
   const {state, dispatch} = useAppContext();
-  const isDarkMode = state?.theme !== 'light';
+  const isDarkMode = state?.theme === 'dark';
 
   const handleToggleTheme = () =>
     dispatch(setTheme(isDarkMode ? 'light' : 'dark'));
