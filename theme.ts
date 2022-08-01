@@ -12,6 +12,7 @@ export const defaultTheme = {
     background: '#FFFFFF',
     error: '#FF5677',
     text: '#041C32',
+    backdrop: '#FFFFFF',
   },
 };
 
@@ -27,5 +28,6 @@ export const darkTheme = {
     background: '#041C32',
     error: '#FF5677',
     text: '#FFFFFF',
+    backdrop: '#041C32',
   },
 };
