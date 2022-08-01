@@ -1,5 +1,5 @@
 import React, {FC, PropsWithChildren} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {SafeAreaView, ScrollView} from 'react-native';
 import useComponentStyles from './BaseLayout.styles';
 
 const BaseLayout: FC<PropsWithChildren> = ({children}) => {
@@ -7,7 +7,9 @@ const BaseLayout: FC<PropsWithChildren> = ({children}) => {
 
   return (
     <SafeAreaView style={styles.main}>
-      <View style={styles.container}>{children}</View>
+      <ScrollView contentContainerStyle={styles.container}>
+        {children}
+      </ScrollView>
     </SafeAreaView>
   );
 };

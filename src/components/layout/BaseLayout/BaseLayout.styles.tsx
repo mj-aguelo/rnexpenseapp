@@ -11,6 +11,7 @@ const componentStyles = ({colors}: {colors: ReactNativePaper.ThemeColors}) =>
     },
     container: {
       margin: 16,
+      height: '100%',
     },
   });
 
