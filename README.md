@@ -2,4 +2,4 @@
 
 react-native
 
-simple expense app
+trial simple expense app
