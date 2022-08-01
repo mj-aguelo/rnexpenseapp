@@ -9,20 +9,19 @@ import React, {
 import {appReducer} from 'store/appReducer';
 import {initialState} from 'store/initialState';
 
-export interface IAppContext {
-  theme?: string;
+export interface IAppState {
+  theme: string;
 }
-const AppContext = createContext<{
-  state?: IAppContext;
+
+export interface IAppContext {
+  state?: IAppState;
   dispatch: Dispatch<any>;
-}>({
+}
+
+const AppContext = createContext<IAppContext>({
   state: initialState,
   dispatch: () => null,
 });
-
-export const useAppContext = () => {
-  return useContext(AppContext);
-};
 
 const AppContextProvider: FC<PropsWithChildren> = ({children}) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
@@ -35,3 +34,4 @@ const AppContextProvider: FC<PropsWithChildren> = ({children}) => {
 };
 
 export default AppContextProvider;
+export const useAppContext = () => useContext(AppContext);

@@ -1,6 +1,6 @@
-import {DefaultTheme} from 'react-native-paper';
+import {DefaultTheme, DarkTheme} from 'react-native-paper';
 
-const defaultTheme = {
+export const defaultTheme = {
   ...DefaultTheme,
   roundness: 2,
   version: 3,
@@ -11,21 +11,21 @@ const defaultTheme = {
     tertiary: '#40394A',
     background: '#FFFFFF',
     error: '#FF5677',
+    text: '#041C32',
   },
 };
 
 export const darkTheme = {
-  ...DefaultTheme,
+  ...DarkTheme,
   roundness: 2,
   version: 3,
   colors: {
-    ...DefaultTheme.colors,
+    ...DarkTheme.colors,
     primary: '#7ECA9C',
     secondary: '#CCFFBD',
     tertiary: '#40394A',
-    background: '#000000',
+    background: '#041C32',
     error: '#FF5677',
+    text: '#FFFFFF',
   },
 };
-
-export default defaultTheme;
