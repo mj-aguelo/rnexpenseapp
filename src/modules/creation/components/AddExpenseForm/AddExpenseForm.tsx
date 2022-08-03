@@ -4,12 +4,12 @@ import CustomTypography from 'components/atoms/CustomTypography';
 import React, {FC, useState} from 'react';
 import {TIndex} from 'interfaces/KeyValue.type';
 import ButtonGroup from 'components/molecule/ButtonGroup';
-import {INCOME_TYPES} from 'src/constants/types.const';
+import {EXPENSE_TYPES} from 'src/constants/types.const';
 import CustomNumberInput from 'components/atoms/CustomNumberInput';
 import CustomButton from 'components/atoms/CustomButton';
 import {View} from 'react-native';
 
-const AddIncomeForm: FC = () => {
+const AddExpenseForm: FC = () => {
   const {colors} = useTheme();
   const [amount, setAmount] = useState<string | undefined>(undefined);
   const [category, setCategory] = useState<TIndex>('');
@@ -17,7 +17,7 @@ const AddIncomeForm: FC = () => {
     <View>
       <Stack>
         <CustomTypography variant="h4" color={colors.text}>
-          Add Income
+          Add Expense
         </CustomTypography>
       </Stack>
       <Stack spacing={2}>
@@ -34,7 +34,7 @@ const AddIncomeForm: FC = () => {
       </Stack>
       <Stack>
         <ButtonGroup
-          options={INCOME_TYPES}
+          options={EXPENSE_TYPES}
           onPress={(value: TIndex) => setCategory(value)}
           selectedIndex={category}
         />
@@ -46,4 +46,4 @@ const AddIncomeForm: FC = () => {
   );
 };
 
-export default AddIncomeForm;
+export default AddExpenseForm;
