@@ -3,12 +3,12 @@ import {TextInput, useTheme} from 'react-native-paper';
 import {TextInputProps} from 'react-native-paper/lib/typescript/components/TextInput/TextInput';
 import useComponentStyles from './CustomTextInput.styles';
 
-export interface ICustomTextInput extends Partial<TextInputProps> {
+export interface ICustomTextInputProps extends Partial<TextInputProps> {
   theme?: ReactNativePaper.Theme;
   value: any;
 }
 
-const CustomTextInput: FC<ICustomTextInput> = ({
+const CustomTextInput: FC<ICustomTextInputProps> = ({
   onChangeText,
   onBlur,
   ...rest
