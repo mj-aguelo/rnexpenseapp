@@ -1,4 +1,4 @@
-import {TDispatchAction} from 'src/interfaces/Action.type';
+import {TDispatchAction} from 'interfaces/Action.type';
 import {APP_SET_THEME} from './actions';
 import {initialState} from './initialState';
 
