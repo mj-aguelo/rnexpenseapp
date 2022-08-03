@@ -4,10 +4,12 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from 'modules/landing/screens/Home';
 import useNavigationOptions from 'hooks/useNavigationOptions';
 import AddIncome from 'modules/creation/screens/AddIncome';
+import AddExpense from 'modules/creation/screens/AddExpense';
 
 export type RootStackParamList = {
   Home: undefined;
   AddIncome: undefined;
+  AddExpense: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -30,6 +32,11 @@ const Navigator = () => {
             name="AddIncome"
             component={AddIncome}
             options={{title: 'Add Income', ...navigationOptions}}
+          />
+          <Stack.Screen
+            name="AddExpense"
+            component={AddExpense}
+            options={{title: 'Add Expense', ...navigationOptions}}
           />
         </Stack.Group>
       </Stack.Navigator>
