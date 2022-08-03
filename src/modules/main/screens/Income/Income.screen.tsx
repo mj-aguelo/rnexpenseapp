@@ -7,22 +7,22 @@ import {RootStackParamList} from 'navigation/Navigator';
 import React, {FC} from 'react';
 import {useTheme} from 'react-native-paper';
 
-type HomeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type IncomeScreenProp = StackNavigationProp<RootStackParamList, 'Income'>;
 
-const HomeScreen: FC = () => {
+const IncomeScreen: FC = () => {
   const {colors} = useTheme();
-  const navigation = useNavigation<HomeScreenProp>();
+  const navigation = useNavigation<IncomeScreenProp>();
   return (
     <BaseLayout>
       <CustomTypography variant="h1" color={colors.text}>
-        Home
+        Income
       </CustomTypography>
 
-      <FloatingButton onPress={() => navigation.navigate('AddExpense')}>
+      <FloatingButton onPress={() => navigation.navigate('AddIncome')}>
         +
       </FloatingButton>
     </BaseLayout>
   );
 };
 
-export default HomeScreen;
+export default IncomeScreen;
