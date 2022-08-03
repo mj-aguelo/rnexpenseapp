@@ -1,18 +1,43 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from 'modules/landing/screens/Home';
+import Home from 'modules/main/screens/Home';
+import Expense from 'modules/main/screens/Expense';
+import Income from 'modules/main/screens/Income';
 import useNavigationOptions from 'hooks/useNavigationOptions';
 import AddIncome from 'modules/creation/screens/AddIncome';
 import AddExpense from 'modules/creation/screens/AddExpense';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 export type RootStackParamList = {
+  Main: undefined;
   Home: undefined;
+  Expense: undefined;
+  Income: undefined;
   AddIncome: undefined;
   AddExpense: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
+const Tab = createBottomTabNavigator();
+
+const MainTabs = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
+      <Tab.Screen
+        name="Expense"
+        component={Expense}
+        options={{headerShown: false}}
+      />
+      <Tab.Screen
+        name="Income"
+        component={Income}
+        options={{headerShown: false}}
+      />
+    </Tab.Navigator>
+  );
+};
 
 const Navigator = () => {
   const navigationOptions = useNavigationOptions();
@@ -22,8 +47,8 @@ const Navigator = () => {
       <Stack.Navigator>
         <Stack.Group>
           <Stack.Screen
-            name="Home"
-            component={Home}
+            name="Main"
+            component={MainTabs}
             options={navigationOptions}
           />
         </Stack.Group>
