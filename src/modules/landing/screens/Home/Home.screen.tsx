@@ -18,7 +18,7 @@ const HomeScreen: FC = () => {
         Home
       </CustomTypography>
 
-      <FloatingButton onPress={() => navigation.navigate('AddIncome')}>
+      <FloatingButton onPress={() => navigation.navigate('AddExpense')}>
         +
       </FloatingButton>
     </BaseLayout>
