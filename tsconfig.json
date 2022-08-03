@@ -13,9 +13,11 @@
     "resolveJsonModule": true,
     "paths": {
       "components/*": ["src/components/*"],
+      "constants/*": ["src/constants/*"],
       "modules/*": ["src/modules/*"],
       "navigation/*": ["src/navigation/*"],
       "hooks/*": ["src/hooks/*"],
+      "interfaces/*": ["src/interfaces/*"],
       "utils/*": ["src/utils/*"],
       "context/*": ["src/context/*"],
       "store/*": ["src/store/*"],

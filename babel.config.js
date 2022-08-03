@@ -23,6 +23,8 @@ module.exports = {
           utils: './src/utils',
           context: './src/context',
           store: './src/store',
+          interfaces: './src/interfaces',
+          constants: './src/constants',
         },
       },
     ],
