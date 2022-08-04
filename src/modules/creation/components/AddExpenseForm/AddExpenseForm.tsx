@@ -8,11 +8,14 @@ import {EXPENSE_TYPES} from 'src/constants/types.const';
 import CustomNumberInput from 'components/atoms/CustomNumberInput';
 import CustomButton from 'components/atoms/CustomButton';
 import {View} from 'react-native';
+import DateInputPicker from 'components/molecule/DateInputPicker';
 
 const AddExpenseForm: FC = () => {
   const {colors} = useTheme();
+  const [date, setDate] = useState<Date | null>(null);
   const [amount, setAmount] = useState<string | undefined>(undefined);
   const [category, setCategory] = useState<TIndex>('');
+
   return (
     <View>
       <Stack>
@@ -20,7 +23,11 @@ const AddExpenseForm: FC = () => {
           Add Expense
         </CustomTypography>
       </Stack>
-      <Stack spacing={2}>
+
+      <Stack spacing={1}>
+        <DateInputPicker onChange={(dt: Date) => setDate(dt)} />
+      </Stack>
+      <Stack spacing={1}>
         <CustomNumberInput
           label={'Amount'}
           value={amount}
@@ -39,7 +46,7 @@ const AddExpenseForm: FC = () => {
           selectedIndex={category}
         />
       </Stack>
-      <Stack spacing={10}>
+      <Stack spacing={4}>
         <CustomButton>Submit</CustomButton>
       </Stack>
     </View>

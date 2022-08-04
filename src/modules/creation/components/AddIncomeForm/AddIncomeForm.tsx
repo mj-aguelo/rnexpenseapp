@@ -8,9 +8,11 @@ import {INCOME_TYPES} from 'src/constants/types.const';
 import CustomNumberInput from 'components/atoms/CustomNumberInput';
 import CustomButton from 'components/atoms/CustomButton';
 import {View} from 'react-native';
+import DateInputPicker from 'components/molecule/DateInputPicker';
 
 const AddIncomeForm: FC = () => {
   const {colors} = useTheme();
+  const [date, setDate] = useState<Date | null>(null);
   const [amount, setAmount] = useState<string | undefined>(undefined);
   const [category, setCategory] = useState<TIndex>('');
   return (
@@ -20,7 +22,10 @@ const AddIncomeForm: FC = () => {
           Add Income
         </CustomTypography>
       </Stack>
-      <Stack spacing={2}>
+      <Stack spacing={1}>
+        <DateInputPicker onChange={(dt: Date) => setDate(dt)} />
+      </Stack>
+      <Stack spacing={1}>
         <CustomNumberInput
           label={'Amount'}
           value={amount}
