@@ -1,14 +1,14 @@
 import {useTheme} from 'react-native-paper';
 import React, {FC, PropsWithChildren} from 'react';
 import {Button} from 'react-native-paper';
-import {ViewStyle} from 'react-native';
+import {TextStyle, ViewStyle} from 'react-native';
 
 export interface ICustomButtonProps extends PropsWithChildren {
   color?: string;
   labelColor?: string;
   onPress?: Function;
   style?: ViewStyle;
-  labelStyle?: ViewStyle;
+  labelStyle?: TextStyle;
 }
 
 const CustomButton: FC<ICustomButtonProps> = ({

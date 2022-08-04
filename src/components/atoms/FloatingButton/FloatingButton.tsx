@@ -1,7 +1,7 @@
 import {useTheme} from 'react-native-paper';
 import React, {FC, PropsWithChildren} from 'react';
-import {Button} from 'react-native-paper';
 import useComponentStyles from './FloatingButton.styles';
+import CustomButton from '../CustomButton';
 
 export interface IFloatingButtonProps extends PropsWithChildren {
   color?: string;
@@ -25,12 +25,12 @@ const FloatingButton: FC<IFloatingButtonProps> = ({
   };
 
   return (
-    <Button
+    <CustomButton
       onPress={handleOnPress}
       style={{...styles.button, backgroundColor: defaultColor}}
       labelStyle={{color: defaultLabelColor}}>
       {children}
-    </Button>
+    </CustomButton>
   );
 };
 
