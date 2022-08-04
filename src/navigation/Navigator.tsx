@@ -8,6 +8,7 @@ import useNavigationOptions from 'hooks/useNavigationOptions';
 import AddIncome from 'modules/creation/screens/AddIncome';
 import AddExpense from 'modules/creation/screens/AddExpense';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import useBottomNavigationOptions from 'hooks/useBottomNavigationOptions';
 
 export type RootStackParamList = {
   Main: undefined;
@@ -22,18 +23,23 @@ const Stack = createStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
 
 const MainTabs = () => {
+  const {bottomNavigation} = useBottomNavigationOptions();
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} options={{headerShown: false}} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={bottomNavigation('home')}
+      />
       <Tab.Screen
         name="Expense"
         component={Expense}
-        options={{headerShown: false}}
+        options={bottomNavigation('wallet')}
       />
       <Tab.Screen
         name="Income"
         component={Income}
-        options={{headerShown: false}}
+        options={bottomNavigation('hand-coin')}
       />
     </Tab.Navigator>
   );
