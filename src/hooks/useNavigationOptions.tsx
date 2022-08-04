@@ -17,8 +17,10 @@ function useNavigationOptions(): StackNavigationOptions {
     headerStyle: {
       backgroundColor: colors.primary,
     },
+    headerTintColor: colors.backdrop,
+    headerBackTitleVisible: false,
     headerRight: () => (
-      <Button labelStyle={{color: colors.error}} onPress={handleToggleTheme}>
+      <Button onPress={handleToggleTheme}>
         <Ionicons
           color={colors.backdrop}
           name={isDarkMode ? 'moon' : 'moon-outline'}

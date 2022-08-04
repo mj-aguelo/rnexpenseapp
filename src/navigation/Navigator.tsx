@@ -55,7 +55,11 @@ const Navigator = () => {
           <Stack.Screen
             name="Main"
             component={MainTabs}
-            options={navigationOptions}
+            options={{
+              ...navigationOptions,
+              headerTitle: 'Home',
+              headerLeft: undefined,
+            }}
           />
         </Stack.Group>
         <Stack.Group screenOptions={{presentation: 'modal'}}>
