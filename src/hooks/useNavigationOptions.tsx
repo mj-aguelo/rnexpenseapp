@@ -3,15 +3,16 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {StackNavigationOptions} from '@react-navigation/stack';
 import {Button, useTheme} from 'react-native-paper';
 import {useAppContext} from 'context/AppContext';
-import {setTheme} from 'store/actions';
+import {APP_SET_THEME} from 'store/actions';
 
 function useNavigationOptions(): StackNavigationOptions {
   const {colors} = useTheme();
   const {state, dispatch} = useAppContext();
   const isDarkMode = state?.theme === 'dark';
 
-  const handleToggleTheme = () =>
-    dispatch(setTheme(isDarkMode ? 'light' : 'dark'));
+  const handleToggleTheme = () => {
+    dispatch({type: APP_SET_THEME, payload: isDarkMode ? 'light' : 'dark'});
+  };
 
   const options: StackNavigationOptions = {
     headerStyle: {

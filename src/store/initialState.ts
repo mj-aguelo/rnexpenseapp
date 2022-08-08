@@ -1,5 +1,7 @@
 export const initialState = {
-  theme: 'light',
+  theme: 'dark',
+  income: [],
+  expense: [],
 };
 
-export const persistKeys = ['theme'];
+export const persistKeys = ['theme', 'income', 'expense'];

@@ -1,4 +1,5 @@
 import useStorage from 'hooks/useStorage';
+import {ITransaction} from 'interfaces/Transaction.interface';
 import React, {
   Dispatch,
   createContext,
@@ -9,12 +10,14 @@ import React, {
   useEffect,
   useState,
 } from 'react';
-import {setAppState} from 'store/actions';
+import {APP_SET_STATE} from 'store/actions';
 import {appReducer} from 'store/appReducer';
 import {initialState, persistKeys} from 'store/initialState';
 
 export interface IAppState {
   theme: string;
+  income: Array<ITransaction>;
+  expense: Array<ITransaction>;
 }
 
 export interface IAppContext {
@@ -57,7 +60,7 @@ const AppContextProvider: FC<PropsWithChildren> = ({children}) => {
       async function loadData() {
         await storage.getItem('app', initialState).then(st => {
           if (st !== null) {
-            dispatch(setAppState(st));
+            dispatch({type: APP_SET_STATE, payload: st});
             setContextState(st);
           }
         });
