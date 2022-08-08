@@ -9,12 +9,28 @@ import CustomNumberInput from 'components/atoms/CustomNumberInput';
 import CustomButton from 'components/atoms/CustomButton';
 import {View} from 'react-native';
 import DateInputPicker from 'components/molecule/DateInputPicker';
+import {ADD_EXPENSE} from 'store/actions';
+import {useAppContext} from 'context/AppContext';
+import {useNavigation} from '@react-navigation/native';
 
 const AddExpenseForm: FC = () => {
+  const navigation = useNavigation();
+  const {dispatch} = useAppContext();
   const {colors} = useTheme();
   const [date, setDate] = useState<Date | null>(null);
   const [amount, setAmount] = useState<string | undefined>(undefined);
   const [category, setCategory] = useState<TIndex>('');
+
+  const handleSubmit = () => {
+    const income = {
+      date,
+      amount,
+      category,
+    };
+
+    dispatch({type: ADD_EXPENSE, payload: income});
+    navigation.goBack();
+  };
 
   return (
     <View>
@@ -47,7 +63,7 @@ const AddExpenseForm: FC = () => {
         />
       </Stack>
       <Stack spacing={4}>
-        <CustomButton>Submit</CustomButton>
+        <CustomButton onPress={handleSubmit}>Submit</CustomButton>
       </Stack>
     </View>
   );

@@ -9,12 +9,29 @@ import CustomNumberInput from 'components/atoms/CustomNumberInput';
 import CustomButton from 'components/atoms/CustomButton';
 import {View} from 'react-native';
 import DateInputPicker from 'components/molecule/DateInputPicker';
+import {useAppContext} from 'context/AppContext';
+import {ADD_INCOME} from 'store/actions';
+import {useNavigation} from '@react-navigation/native';
 
 const AddIncomeForm: FC = () => {
+  const navigation = useNavigation();
+  const {dispatch} = useAppContext();
   const {colors} = useTheme();
   const [date, setDate] = useState<Date | null>(null);
   const [amount, setAmount] = useState<string | undefined>(undefined);
   const [category, setCategory] = useState<TIndex>('');
+
+  const handleSubmit = () => {
+    const income = {
+      date,
+      amount,
+      category,
+    };
+
+    dispatch({type: ADD_INCOME, payload: income});
+    navigation.goBack();
+  };
+
   return (
     <View>
       <Stack>
@@ -45,7 +62,7 @@ const AddIncomeForm: FC = () => {
         />
       </Stack>
       <Stack spacing={10}>
-        <CustomButton>Submit</CustomButton>
+        <CustomButton onPress={handleSubmit}>Submit</CustomButton>
       </Stack>
     </View>
   );
