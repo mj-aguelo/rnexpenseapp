@@ -42,9 +42,9 @@ const ButtonGroup: FC<IButtonGroupProps> = ({
       {options?.map((option, index) => (
         <CustomButton
           key={index}
-          onPress={() => handleOnPress(index)}
+          onPress={() => handleOnPress(option.value)}
           style={styles.button}
-          color={isSelected(index) ? defaultSelectedColor : defaultColor}
+          color={isSelected(option.value) ? defaultSelectedColor : defaultColor}
           labelColor={
             isSelected(index) ? defaultLabelColor : defaultSelectedLabelColor
           }>
